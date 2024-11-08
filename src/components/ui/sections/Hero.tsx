@@ -3,11 +3,18 @@
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Button } from "@/components/ui/button";
+import { AspectRatio } from "@/components/ui/aspect-ratio";
+import image from "../../../../public/images/icon.png";
+import Image from "next/image";
 
 export default function Hero() {
   const [currentWord, setCurrentWord] = useState(0);
-  const words = ["soluciones digitales", "experiencias únicas", "futuro innovador", "éxito digital"];
-
+  const words = [
+    "soluciones digitales",
+    "experiencias únicas",
+    "futuro innovador",
+    "éxito digital",
+  ];
   useEffect(() => {
     const interval = setInterval(() => {
       setCurrentWord((prev) => (prev + 1) % words.length);
@@ -35,7 +42,9 @@ export default function Hero() {
             </AnimatePresence>
           </h1>
           <p className="text-gray-400 text-lg max-w-lg">
-            En KiwiSoft, nos especializamos en el desarrollo de software a medida, aplicaciones web y móviles, y soluciones tecnológicas innovadoras para impulsar tu negocio hacia el futuro digital.
+            En KiwiSoft, nos especializamos en el desarrollo de software a
+            medida, aplicaciones web y móviles, y soluciones tecnológicas
+            innovadoras para impulsar tu negocio hacia el futuro digital.
           </p>
           <Button className="bg-emerald-500 hover:bg-emerald-600 text-white text-lg px-8 py-3 rounded-full">
             Comienza tu proyecto
@@ -43,13 +52,15 @@ export default function Hero() {
         </div>
         <div className="relative">
           <div className="absolute inset-0 bg-gradient-to-r from-emerald-500/20 to-transparent rounded-full blur-3xl" />
-          <img
-            alt="Dashboard Preview"
-            className="relative z-10 w-full max-w-md mx-auto"
-            src="https://source.unsplash.com/random/400x500/?dashboard"
-            width={400}
-            height={500}
-          />
+          <div className="w-[450px]">
+            <AspectRatio>
+              <Image
+                src={image}
+                alt="Image"
+                className="rounded-md object-cover"
+              />
+            </AspectRatio>
+          </div>
         </div>
       </div>
     </section>

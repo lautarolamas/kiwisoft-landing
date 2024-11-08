@@ -14,7 +14,7 @@ export default function Footer() {
           <FooterSection title="KiwiSoft" content="Transformando el futuro digital con soluciones tecnológicas innovadoras." />
           <FooterSection title="Servicios" links={["Desarrollo Web", "Aplicaciones Móviles", "UI/UX Design", "Consultoría IT"]} />
           <FooterSection title="Empresa" links={["Sobre Nosotros", "Proyectos", "Testimonios", "Contacto"]} />
-          <FooterSection title="Contacto" links={["info@kiwisoft.com", "+1 (555) 123-4567", "San Francisco, CA"]} />
+          <FooterSection title="Contacto" links={["info@kiwisoft.com", "1138864220", "Buenos Aires, AR"]} />
         </div>
         <div className="border-t border-gray-800 mt-12 pt-8 text-center text-gray-400">
           <p>© 2024 KiwiSoft. Todos los derechos reservados.</p>
