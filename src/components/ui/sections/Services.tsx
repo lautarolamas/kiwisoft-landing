@@ -18,7 +18,7 @@ export default function Services() {
           Ofrecemos soluciones tecnológicas completas para tu empresa
         </p>
       </div>
-      <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+      <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
         <ServiceCard
           icon={<Code />}
           title="Desarrollo Web"
@@ -38,16 +38,6 @@ export default function Services() {
           icon={<Shield />}
           title="Ciberseguridad"
           description="Protegemos tu negocio digital."
-        />
-        <ServiceCard
-          icon={<Workflow />}
-          title="Consultoría IT"
-          description="Transformación digital estratégica."
-        />
-        <ServiceCard
-          icon={<Zap />}
-          title="Soporte Técnico"
-          description="Soporte continuo y mantenimiento."
         />
       </div>
     </section>

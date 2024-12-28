@@ -8,7 +8,7 @@ interface PricingCardProps {
   plan: string;
   price: string;
   features: string[];
-  popular?: boolean; // Esta propiedad es opcional
+  popular?: boolean;
 }
 
 export default function Pricing() {
@@ -16,12 +16,41 @@ export default function Pricing() {
     <section className="container mx-auto px-4 py-20">
       <div className="text-center mb-16">
         <h2 className="text-4xl font-bold mb-4">Planes y Precios</h2>
-        <p className="text-gray-400 text-lg">Encuentra el plan perfecto para tu negocio</p>
+        <p className="text-gray-400 text-lg">
+          Encuentra el plan perfecto para tu negocio
+        </p>
       </div>
       <div className="grid md:grid-cols-3 gap-8">
-        <PricingCard plan="Básico" price="$999" features={["Desarrollo Web Básico", "Soporte 8/5", "1 Revisión Mensual"]} />
-        <PricingCard plan="Profesional" price="$2499" features={["Desarrollo Web Avanzado", "Soporte 24/7", "4 Revisiones Mensuales", "SEO Optimización"]} popular />
-        <PricingCard plan="Empresarial" price="$4999" features={["Desarrollo Personalizado", "Soporte Premium 24/7", "Revisiones Ilimitadas", "Consultoría Estratégica"]} />
+        <PricingCard
+          plan="Básico"
+          price="$999"
+          features={[
+            "Desarrollo Web Básico",
+            "Soporte 8/5",
+            "1 Revisión Mensual",
+          ]}
+        />
+        <PricingCard
+          plan="Profesional"
+          price="$2499"
+          features={[
+            "Desarrollo Web Avanzado",
+            "Soporte 24/7",
+            "4 Revisiones Mensuales",
+            "SEO Optimización",
+          ]}
+          popular
+        />
+        <PricingCard
+          plan="Empresarial"
+          price="$4999"
+          features={[
+            "Desarrollo Personalizado",
+            "Soporte Premium 24/7",
+            "Revisiones Ilimitadas",
+            "Consultoría Estratégica",
+          ]}
+        />
       </div>
     </section>
   );
@@ -51,7 +80,9 @@ function PricingCard({ plan, price, features, popular }: PricingCardProps) {
             </li>
           ))}
         </ul>
-        <Button className="w-full bg-emerald-500 hover:bg-emerald-600">Comenzar</Button>
+        <Button className="w-full bg-emerald-500 hover:bg-emerald-600">
+          Comenzar
+        </Button>
       </CardContent>
     </Card>
   );

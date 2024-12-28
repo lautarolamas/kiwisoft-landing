@@ -1,5 +1,3 @@
-"use client";
-
 import { Card, CardContent } from "@/components/ui/card";
 import { Star } from "lucide-react";
 
@@ -15,20 +13,25 @@ export default function Testimonials() {
     {
       name: "María González",
       position: "CEO, TechStart",
-      feedback: "KiwiSoft transformó completamente nuestra presencia digital. Su equipo es altamente profesional y entregaron más allá de nuestras expectativas.",
-      rating: 5,
+      feedback:
+        "KiwiSoft transformó completamente nuestra presencia digital. Su equipo es altamente profesional y entregaron más allá de nuestras expectativas.",
+      rating: 4.8,
+      avatar: "/images/avatars/maria-gonzalez.jpg",
     },
     {
       name: "Carlos Ruiz",
       position: "Director, InnovaTech",
-      feedback: "La atención al detalle y el compromiso con la calidad de KiwiSoft es excepcional. Han sido fundamentales en nuestro crecimiento digital.",
-      rating: 4.5,
+      feedback:
+        "La atención al detalle y el compromiso con la calidad de KiwiSoft es excepcional. Han sido fundamentales en nuestro crecimiento digital.",
+      rating: 4,
+      avatar: "/images/avatars/carlos-ruiz.jpg",
     },
     {
       name: "Ana Martínez",
       position: "CTO, DataFlow",
-      feedback: "Trabajar con KiwiSoft ha sido una experiencia excepcional. Su equipo no solo es técnicamente competente, sino también muy colaborativo.",
-      rating: 5,
+      feedback:
+        "Trabajar con KiwiSoft ha sido una experiencia excepcional. Su equipo no solo es técnicamente competente, sino también muy colaborativo.",
+      rating: 4.2,
     },
   ];
 
@@ -47,7 +50,16 @@ export default function Testimonials() {
   );
 }
 
-function TestimonialCard({ name, position, feedback, rating }: TestimonialCardProps) {
+function TestimonialCard({
+  name,
+  position,
+  feedback,
+  rating,
+}: TestimonialCardProps) {
+  const avatarUrl = `https://avatars.dicebear.com/api/initials/${encodeURIComponent(
+    name
+  )}.svg`;
+
   return (
     <Card className="bg-gray-800/50 border-gray-700">
       <CardContent className="p-6">
@@ -55,14 +67,22 @@ function TestimonialCard({ name, position, feedback, rating }: TestimonialCardPr
           {[...Array(5)].map((_, i) => (
             <Star
               key={i}
-              className={`w-5 h-5 ${i < Math.floor(rating) ? "fill-emerald-400 text-emerald-400" : "fill-none text-emerald-400"}`}
+              className={`w-5 h-5 ${
+                i < Math.floor(rating)
+                  ? "fill-emerald-400 text-emerald-400"
+                  : "fill-none text-emerald-400"
+              }`}
               strokeWidth={i < Math.floor(rating) ? 0 : 1.5}
             />
           ))}
         </div>
         <p className="text-gray-400 mb-4">"{feedback}"</p>
         <div className="flex items-center gap-4">
-          <div className="w-12 h-12 bg-emerald-500/20 rounded-full" />
+          <img
+            src={avatarUrl}
+            alt={`Avatar de ${name}`}
+            className="w-12 h-12 rounded-full"
+          />
           <div>
             <div className="font-bold text-white">{name}</div>
             <div className="text-gray-400">{position}</div>

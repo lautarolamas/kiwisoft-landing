@@ -53,13 +53,7 @@ export default function Hero() {
         <div className="relative">
           <div className="absolute inset-0 bg-gradient-to-r from-emerald-500/20 to-transparent rounded-full blur-3xl" />
           <div className="w-[450px]">
-            <AspectRatio>
-              <Image
-                src={image}
-                alt="Image"
-                className="rounded-md object-cover"
-              />
-            </AspectRatio>
+            <AspectRatio></AspectRatio>
           </div>
         </div>
       </div>
