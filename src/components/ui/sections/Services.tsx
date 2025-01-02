@@ -1,7 +1,7 @@
 "use client";
 
 import { Card, CardContent } from "@/components/ui/card";
-import { Code, Blocks, Gem, Shield, Workflow, Zap } from "lucide-react";
+import { Code, Blocks, Gem, Shield } from "lucide-react";
 
 interface ServiceCardProps {
   icon: React.ReactNode;

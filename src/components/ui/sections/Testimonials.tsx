@@ -76,7 +76,7 @@ function TestimonialCard({
             />
           ))}
         </div>
-        <p className="text-gray-400 mb-4">"{feedback}"</p>
+        <p className="text-gray-400 mb-4">{feedback}</p>
         <div className="flex items-center gap-4">
           <img
             src={avatarUrl}

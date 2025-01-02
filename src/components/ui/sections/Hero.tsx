@@ -4,8 +4,6 @@ import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { AspectRatio } from "@/components/ui/aspect-ratio";
-import image from "../../../../public/images/icon.png";
-import Image from "next/image";
 
 export default function Hero() {
   const [currentWord, setCurrentWord] = useState(0);
