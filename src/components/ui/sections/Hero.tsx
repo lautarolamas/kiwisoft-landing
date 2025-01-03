@@ -4,8 +4,6 @@ import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { AspectRatio } from "@/components/ui/aspect-ratio";
 import { Player } from "@lottiefiles/react-lottie-player";
-// import animationData from "@/public/images/Animation.json";
-
 export default function Hero() {
   const [currentWord, setCurrentWord] = useState(0);
 
@@ -70,8 +68,6 @@ export default function Hero() {
             Conoce más
           </a>
         </div>
-
-        {/* Contenido visual */}
 
         <div className="relative flex justify-center lg:justify-end">
           <div

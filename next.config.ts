@@ -1,7 +1,9 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
-  /* config options here */
+   eslint: {
+    dirs: ['src'], // Ajusta según la estructura de tu proyecto
+  },
 };
 
 export default nextConfig;
