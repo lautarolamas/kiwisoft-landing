@@ -1,49 +1,111 @@
-"use client";
-
+import React, { useState } from "react";
 import Link from "next/link";
-import { Button } from "@/components/ui/button";
+import { AnimatePresence, motion } from "framer-motion";
+import { IconBadge4k, IconMenu2, IconX } from "@tabler/icons-react";
 
 export default function Navbar() {
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+
+  const toggleMenu = () => {
+    setIsMenuOpen(!isMenuOpen);
+  };
+
+  const iconClass = "w-6 h-6 text-emerald-500";
+
   return (
-    <nav className="container mx-auto px-4 py-6">
+    <nav className="relative container mx-auto px-4 py-6">
       <div className="flex items-center justify-between">
         <div className="flex items-center space-x-12">
           <Link
             className="flex items-center space-x-2 text-2xl font-bold"
             href="#"
           >
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              viewBox="0 0 24 24"
-              fill="currentColor"
-              className="w-8 h-8 text-emerald-500"
-            >
-              <path d="M12.97 2.59a1.5 1.5 0 00-1.94 0l-7.5 6.363A1.5 1.5 0 003 10.097V19.5A1.5 1.5 0 004.5 21h4.75a.75.75 0 00.75-.75V14h4v6.25c0 .414.336.75.75.75h4.75a1.5 1.5 0 001.5-1.5v-9.403a1.5 1.5 0 00-.53-1.144l-7.5-6.363z" />
-            </svg>
-            <span>kiwisoft</span>
+            <span>Kiwisoft</span>
           </Link>
           <div className="hidden md:flex items-center space-x-8">
             <Link className="text-sm hover:text-emerald-400" href="#">
               Inicio
             </Link>
-            <Link className="text-sm hover:text-emerald-400" href="#">
+            <Link
+              className="text-sm hover:text-emerald-400"
+              href="#nuestros-servicios"
+            >
               Servicios
             </Link>
-            <Link className="text-sm hover:text-emerald-400" href="#">
-              Proyectos
+            <Link className="text-sm hover:text-emerald-400" href="#planes">
+              Planes
             </Link>
-            <Link className="text-sm hover:text-emerald-400" href="#">
-              Nosotros
-            </Link>
-            <Link className="text-sm hover:text-emerald-400" href="#">
-              Contacto
+            <Link className="text-sm hover:text-emerald-400" href="#faq">
+              Preguntas frecuentes
             </Link>
           </div>
         </div>
-        <Button className="bg-emerald-500 hover:bg-emerald-600 text-white px-6 py-2 ">
+        <a
+          href="mailto:info@kiwisoft.com?subject=Consulta%20sobre%20KiwiSoft&body=Hola,%20quiero%20más%20información%20sobre%20sus%20servicios."
+          className="hidden md:inline-block bg-emerald-500 hover:bg-emerald-600 text-white px-6 py-2 ml-4 rounded"
+        >
           Contáctanos
-        </Button>
+        </a>
+        <button className="md:hidden text-white text-3xl" onClick={toggleMenu}>
+          <IconMenu2 stroke={2} />
+        </button>
       </div>
+
+      {/* Menu lateral para mobile */}
+      <AnimatePresence>
+        {isMenuOpen && (
+          <motion.div
+            initial={{ x: "90%" }}
+            animate={{ x: 0 }}
+            exit={{ x: "100%" }}
+            transition={{ duration: 0.3 }}
+            className="fixed inset-0 bg-black z-50 flex flex-col items-center justify-center space-y-6"
+          >
+            <button
+              className="absolute top-4 right-4 text-white text-2xl"
+              onClick={toggleMenu}
+            >
+              <IconX stroke={2} />
+            </button>
+            <Link
+              className="flex items-center space-x-2 font-bold text-whitetext-xl"
+              href="#"
+              onClick={toggleMenu}
+            >
+              <span>Inicio</span>
+            </Link>
+            <Link
+              className="flex items-center space-x-2 font-bold text-white text-xl"
+              href="#nuestros-servicios"
+              onClick={toggleMenu}
+            >
+              <span>Servicios</span>
+            </Link>
+            <Link
+              className="flex items-center space-x-2 font-bold text-whitetext-xl"
+              href="#planes"
+              onClick={toggleMenu}
+            >
+              <span>Planes</span>
+            </Link>
+            <Link
+              className="flex items-center space-x-2 font-bold text-white text-xl"
+              href="#faq"
+              onClick={toggleMenu}
+            >
+              <span>Preguntas frecuentes</span>
+            </Link>
+
+            <a
+              href="mailto:info@kiwisoft.com?subject=Consulta%20sobre%20KiwiSoft&body=Hola,%20quiero%20más%20información%20sobre%20sus%20servicios."
+              className="flex items-center space-x-2 bg-emerald-500 hover:bg-emerald-600 text-white px-6 py-2 rounded"
+              onClick={toggleMenu}
+            >
+              <span>Contáctanos</span>
+            </a>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </nav>
   );
 }

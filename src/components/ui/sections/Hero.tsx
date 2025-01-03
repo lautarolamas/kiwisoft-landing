@@ -2,17 +2,34 @@
 
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Button } from "@/components/ui/button";
 import { AspectRatio } from "@/components/ui/aspect-ratio";
+import { Player } from "@lottiefiles/react-lottie-player";
+// import animationData from "@/public/images/Animation.json";
 
 export default function Hero() {
   const [currentWord, setCurrentWord] = useState(0);
+
+  const handleScroll = (
+    event: React.MouseEvent<HTMLAnchorElement, MouseEvent>
+  ) => {
+    event.preventDefault();
+    const targetId = event.currentTarget.getAttribute("href")?.substring(1);
+    const targetElement = document.getElementById(targetId!);
+    if (targetElement) {
+      window.scrollTo({
+        top: targetElement.offsetTop,
+        behavior: "smooth",
+      });
+    }
+  };
+
   const words = [
     "soluciones digitales",
     "experiencias únicas",
     "futuro innovador",
     "éxito digital",
   ];
+
   useEffect(() => {
     const interval = setInterval(() => {
       setCurrentWord((prev) => (prev + 1) % words.length);
@@ -21,8 +38,9 @@ export default function Hero() {
   }, []);
 
   return (
-    <section className="container mx-auto px-4 py-20">
-      <div className="grid lg:grid-cols-2 gap-12 items-center">
+    <section className="container mx-auto px-4 py-20 overflow-hidden">
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+        {/* Contenido de texto */}
         <div className="space-y-8">
           <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold leading-tight">
             Transformamos ideas en{" "}
@@ -39,19 +57,39 @@ export default function Hero() {
               </motion.span>
             </AnimatePresence>
           </h1>
-          <p className="text-gray-400 text-lg max-w-lg">
-            En KiwiSoft, nos especializamos en el desarrollo de software a
-            medida, aplicaciones web y móviles, y soluciones tecnológicas
-            innovadoras para impulsar tu negocio hacia el futuro digital.
+          <p className="text-gray-400 text-lg max-w-full sm:max-w-lg">
+            En KiwiSoft, nos dedicamos a crear páginas web a medida, landing
+            pages, sitios institucionales y diseños OnePage, ideales para
+            representar tu marca y destacar en el mundo digital.
           </p>
-          <Button className="bg-emerald-500 hover:bg-emerald-600 text-white text-lg px-8 py-3 rounded-full">
-            Comienza tu proyecto
-          </Button>
+          <a
+            onClick={handleScroll}
+            href="#nuestros-servicios"
+            className="bg-emerald-500 hover:bg-emerald-600 text-white text-lg px-8 py-3 rounded-full inline-block"
+          >
+            Conoce más
+          </a>
         </div>
-        <div className="relative">
-          <div className="absolute inset-0 bg-gradient-to-r from-emerald-500/20 to-transparent rounded-full blur-3xl" />
-          <div className="w-[450px]">
-            <AspectRatio></AspectRatio>
+
+        {/* Contenido visual */}
+
+        <div className="relative flex justify-center lg:justify-end">
+          <div
+            className="absolute inset-0 rounded-full blur-3xl"
+            style={{
+              background:
+                "radial-gradient(circle, rgba(16,185,129,0.1) 0%, transparent 80%)",
+            }}
+          />
+          <div className="w-full max-w-xs sm:max-w-md lg:max-w-lg">
+            <AspectRatio>
+              <Player
+                autoplay
+                loop
+                src="/images/Animation.json"
+                style={{ width: "100%", height: "100%" }}
+              />
+            </AspectRatio>
           </div>
         </div>
       </div>

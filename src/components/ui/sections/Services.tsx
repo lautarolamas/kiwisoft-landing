@@ -11,33 +11,33 @@ interface ServiceCardProps {
 
 export default function Services() {
   return (
-    <section className="container mx-auto px-4 py-20">
+    <section id="nuestros-servicios" className="container mx-auto px-4 py-20">
       <div className="text-center mb-16">
         <h2 className="text-4xl font-bold mb-4">Nuestros Servicios</h2>
         <p className="text-gray-400 text-lg">
           Ofrecemos soluciones tecnológicas completas para tu empresa
         </p>
       </div>
-      <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+      <div className="grid md:grid-cols-1 lg:grid-cols-3 gap-8">
         <ServiceCard
           icon={<Code />}
-          title="Desarrollo Web"
-          description="Creamos sitios web modernos y optimizados."
+          title="Páginas Web Personalizadas"
+          description="Diseñamos páginas web modernas, optimizadas y adaptadas a tus necesidades."
         />
-        <ServiceCard
+        {/*<ServiceCard
           icon={<Blocks />}
           title="Aplicaciones Móviles"
           description="Apps nativas y multiplataforma."
-        />
+  />*/}
         <ServiceCard
           icon={<Gem />}
-          title="UI/UX Design"
-          description="Interfaces intuitivas y atractivas."
+          title="Diseño Web Atractivo"
+          description="Desarrollamos interfaces atractivas y funcionales para tu sitio web."
         />
         <ServiceCard
           icon={<Shield />}
-          title="Ciberseguridad"
-          description="Protegemos tu negocio digital."
+          title="Protección Digital"
+          description="Aseguramos que tu sitio web sea seguro y confiable"
         />
       </div>
     </section>

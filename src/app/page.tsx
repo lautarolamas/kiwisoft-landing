@@ -1,10 +1,10 @@
 "use client";
 
-import Navbar from "@/components/ui/sections/Navbar"
+import Navbar from "@/components/ui/sections/Navbar";
 import Hero from "@/components/ui/sections/Hero";
 import Services from "@/components/ui/sections/Services";
 import Pricing from "@/components/ui/sections/Pricing";
-import Testimonials from "@/components/ui/sections/Testimonials";
+// import Testimonials from "@/components/ui/sections/Testimonials";
 import FAQ from "@/components/ui/sections/FAQ";
 import Footer from "@/components/ui/sections/Footer";
 
@@ -15,7 +15,7 @@ export default function Page() {
       <Hero />
       <Services />
       <Pricing />
-      <Testimonials />
+      {/* <Testimonials /> */}
       <FAQ />
       <Footer />
     </div>

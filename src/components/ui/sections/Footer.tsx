@@ -8,29 +8,27 @@ interface FooterSectionProps {
 
 export default function Footer() {
   return (
-    <footer className="border-t border-gray-800">
-      <div className="container mx-auto px-4 py-12">
-        <div className="grid md:grid-cols-4 gap-8">
-          <FooterSection
+    <footer id="contactos" className="border-t border-gray-500">
+      <div className="container mx-auto px-4 py-4">
+        <div className="grid md:grid-cols-1 gap-10">
+          {/* <FooterSection
             title="KiwiSoft"
             content="Transformando el futuro digital con soluciones tecnológicas innovadoras."
-          />
-          <FooterSection
+          /> */}
+          {/* <FooterSection
             title="Servicios"
             links={["Desarrollo Web", "Aplicaciones Móviles", "UI/UX Design"]}
-          />
-          <FooterSection
+          /> */}
+          {/* <FooterSection
             title="Empresa"
             links={["Sobre Nosotros", "Proyectos", "Testimonios", "Contacto"]}
-          />
+          /> */}
           <FooterSection
             title="Contacto"
-            links={["info@kiwisoft.com", "1138864220", "Buenos Aires, AR"]}
+            links={["info@kiwisoft.com", "Buenos Aires, AR"]}
           />
         </div>
-        <div className="border-t border-gray-800 mt-12 pt-8 text-center text-gray-400">
-          <p>© 2024 KiwiSoft. Todos los derechos reservados.</p>
-        </div>
+        <p className="mt-10">©2025 KiwiSoft</p>
       </div>
     </footer>
   );

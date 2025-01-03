@@ -6,24 +6,24 @@ import { Check } from "lucide-react";
 
 interface PricingCardProps {
   plan: string;
-  price: string;
+  price?: string;
   features: string[];
   popular?: boolean;
 }
 
 export default function Pricing() {
   return (
-    <section className="container mx-auto px-4 py-20">
+    <section id="planes" className="container mx-auto px-4 py-20">
       <div className="text-center mb-16">
-        <h2 className="text-4xl font-bold mb-4">Planes y Precios</h2>
+        <h2 className="text-4xl font-bold mb-4">Planes</h2>
         <p className="text-gray-400 text-lg">
-          Encuentra el plan perfecto para tu negocio
+          Encontra el plan perfecto para tu negocio
         </p>
       </div>
       <div className="grid md:grid-cols-3 gap-8">
         <PricingCard
           plan="Básico"
-          price="$999"
+          // price="$999"
           features={[
             "Desarrollo Web Básico",
             "Soporte 8/5",
@@ -32,7 +32,7 @@ export default function Pricing() {
         />
         <PricingCard
           plan="Profesional"
-          price="$2499"
+          // price="$2499"
           features={[
             "Desarrollo Web Avanzado",
             "Soporte 24/7",
@@ -43,7 +43,7 @@ export default function Pricing() {
         />
         <PricingCard
           plan="Empresarial"
-          price="$4999"
+          // price="$4999"
           features={[
             "Desarrollo Personalizado",
             "Soporte Premium 24/7",
@@ -60,16 +60,16 @@ function PricingCard({ plan, price, features, popular }: PricingCardProps) {
   return (
     <Card className="bg-gray-800/50 border-gray-700 relative overflow-hidden group">
       {popular && (
-        <div className="absolute top-0 left-1/2 -translate-x-1/2 bg-emerald-500 text-white px-4 py-1 rounded-full text-sm z-10">
+        <div className="absolute mt-1 left-1/2 -translate-x-1/2 bg-emerald-500 text-white px-4 py-1 rounded-full text-sm z-10">
           Popular
         </div>
       )}
       <CardContent className="p-6">
         <div className="text-center mb-6">
-          <h3 className="text-xl font-bold mb-2 text-white">{plan}</h3>
+          <h3 className="text-xl font-bold mb-2 mt-2 text-white">{plan}</h3>
           <div className="text-4xl font-bold mb-2 text-white">
             {price}
-            <span className="text-lg text-gray-400">/mes</span>
+            {/* <span className="text-lg text-gray-400">/mes</span> */}
           </div>
         </div>
         <ul className="space-y-4 mb-6">
@@ -81,7 +81,7 @@ function PricingCard({ plan, price, features, popular }: PricingCardProps) {
           ))}
         </ul>
         <Button className="w-full bg-emerald-500 hover:bg-emerald-600">
-          Comenzar
+          Consultar
         </Button>
       </CardContent>
     </Card>
