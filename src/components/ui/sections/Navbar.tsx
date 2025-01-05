@@ -39,7 +39,7 @@ export default function Navbar() {
           </div>
         </div>
         <a
-          href="mailto:info@kiwisoft.com?subject=Consulta%20sobre%20KiwiSoft&body=Hola,%20quiero%20más%20información%20sobre%20sus%20servicios."
+          href="mailto:info.kiwisoft@gmail.com?subject=Consulta%20sobre%20KiwiSoft&body=Hola,%20quiero%20más%20información%20sobre%20sus%20servicios."
           className="hidden md:inline-block bg-emerald-500 hover:bg-emerald-600 text-white px-6 py-2 ml-4 rounded"
         >
           Contáctanos
@@ -80,7 +80,7 @@ export default function Navbar() {
               <span>Servicios</span>
             </Link>
             <Link
-              className="flex items-center space-x-2 font-bold text-whitetext-xl"
+              className="flex items-center space-x-2 font-bold text-white text-xl"
               href="#planes"
               onClick={toggleMenu}
             >
@@ -95,7 +95,7 @@ export default function Navbar() {
             </Link>
 
             <a
-              href="mailto:info@kiwisoft.com?subject=Consulta%20sobre%20KiwiSoft&body=Hola,%20quiero%20más%20información%20sobre%20sus%20servicios."
+              href="mailto:info.kiwisoft@gmail.com?subject=Consulta%20sobre%20KiwiSoft&body=Hola,%20quiero%20más%20información%20sobre%20sus%20servicios."
               className="flex items-center space-x-2 bg-emerald-500 hover:bg-emerald-600 text-white px-6 py-2 rounded"
               onClick={toggleMenu}
             >

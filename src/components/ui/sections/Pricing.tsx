@@ -81,7 +81,12 @@ function PricingCard({ plan, price, features, popular }: PricingCardProps) {
           ))}
         </ul>
         <Button className="w-full bg-emerald-500 hover:bg-emerald-600">
-          Consultar
+          <a
+            href="mailto:info.kiwisoft@gmail.com?subject=Consulta%20sobre%20KiwiSoft&body=Hola,%20quiero%20más%20información%20sobre%20sus%20servicios."
+            className="flex items-center space-x-2 bg-emerald-500 hover:bg-emerald-600 text-white px-6 py-2 rounded"
+          >
+            Consultar
+          </a>
         </Button>
       </CardContent>
     </Card>

@@ -25,7 +25,7 @@ export default function Footer() {
           /> */}
           <FooterSection
             title="Contacto"
-            links={["info@kiwisoft.com", "Buenos Aires, AR"]}
+            links={["info.kiwisoft@gmail.com", "Buenos Aires, AR"]}
           />
         </div>
         <p className="mt-10">©2025 KiwiSoft</p>
