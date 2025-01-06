@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import Link from "next/link";
 import { AnimatePresence, motion } from "framer-motion";
 import { IconMenu2, IconX } from "@tabler/icons-react";
+import { handleScroll } from "@/utils/scrollToElement";
 
 export default function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -25,15 +26,24 @@ export default function Navbar() {
               Inicio
             </Link>
             <Link
+              onClick={handleScroll}
               className="text-sm hover:text-emerald-400"
               href="#nuestros-servicios"
             >
               Servicios
             </Link>
-            <Link className="text-sm hover:text-emerald-400" href="#planes">
+            <a
+              className="text-sm hover:text-emerald-400"
+              onClick={handleScroll}
+              href="#planes"
+            >
               Planes
-            </Link>
-            <Link className="text-sm hover:text-emerald-400" href="#faq">
+            </a>
+            <Link
+              className="text-sm hover:text-emerald-400"
+              onClick={handleScroll}
+              href="#faq"
+            >
               Preguntas frecuentes
             </Link>
           </div>

@@ -4,22 +4,9 @@ import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { AspectRatio } from "@/components/ui/aspect-ratio";
 import { Player } from "@lottiefiles/react-lottie-player";
+import { handleScroll } from "@/utils/scrollToElement";
 export default function Hero() {
   const [currentWord, setCurrentWord] = useState(0);
-
-  const handleScroll = (
-    event: React.MouseEvent<HTMLAnchorElement, MouseEvent>
-  ) => {
-    event.preventDefault();
-    const targetId = event.currentTarget.getAttribute("href")?.substring(1);
-    const targetElement = document.getElementById(targetId!);
-    if (targetElement) {
-      window.scrollTo({
-        top: targetElement.offsetTop,
-        behavior: "smooth",
-      });
-    }
-  };
 
   const words = [
     "soluciones digitales",
