@@ -58,37 +58,60 @@ export default function Pricing() {
 
 function PricingCard({ plan, price, features, popular }: PricingCardProps) {
   return (
-    <Card className="bg-gray-800/50 border-gray-700 relative overflow-hidden group">
-      {popular && (
-        <div className="absolute mt-1 left-1/2 -translate-x-1/2 bg-emerald-500 text-white px-4 py-1 rounded-full text-sm z-10">
-          Popular
-        </div>
-      )}
-      <CardContent className="p-6">
-        <div className="text-center mb-6">
-          <h3 className="text-xl font-bold mb-2 mt-2 text-white">{plan}</h3>
-          <div className="text-4xl font-bold mb-2 text-white">
-            {price}
-            {/* <span className="text-lg text-gray-400">/mes</span> */}
+    // Envolvemos toda la tarjeta en un <a> para que sea clickeable.
+    <a
+      href="mailto:info.kiwisoft@gmail.com?subject=Consulta%20sobre%20KiwiSoft&body=Hola,%20quiero%20más%20información%20sobre%20sus%20servicios."
+      className="block group relative"
+    >
+      <Card
+        className="
+          bg-gray-800/50
+          border-gray-700
+          relative
+          overflow-hidden
+          transition
+          duration-300
+          cursor-pointer
+          hover:border-emerald-500
+          hover:shadow-lg
+          hover:shadow-emerald-500/50
+        "
+      >
+        {popular && (
+          <div className="absolute mt-1 left-1/2 -translate-x-1/2 bg-emerald-500 text-white px-4 py-1 rounded-full text-sm z-10">
+            Popular
           </div>
-        </div>
-        <ul className="space-y-4 mb-6">
-          {features.map((feature, index) => (
-            <li key={index} className="flex items-center gap-2 text-white">
-              <Check className="text-emerald-400" />
-              <span>{feature}</span>
-            </li>
-          ))}
-        </ul>
-        <Button className="w-full bg-emerald-500 hover:bg-emerald-600">
-          <a
-            href="mailto:info.kiwisoft@gmail.com?subject=Consulta%20sobre%20KiwiSoft&body=Hola,%20quiero%20más%20información%20sobre%20sus%20servicios."
-            className="flex items-center space-x-2 bg-emerald-500 hover:bg-emerald-600 text-white px-6 py-2 rounded"
+        )}
+        <CardContent className="p-6">
+          <div className="text-center mb-6">
+            <h3 className="text-xl font-bold mb-2 mt-2 text-white">{plan}</h3>
+            <div className="text-4xl font-bold mb-2 text-white">
+              {price}
+              {/* <span className="text-lg text-gray-400">/mes</span> */}
+            </div>
+          </div>
+          <ul className="space-y-4 mb-6">
+            {features.map((feature, index) => (
+              <li key={index} className="flex items-center gap-2 text-white">
+                <Check className="text-emerald-400" />
+                <span>{feature}</span>
+              </li>
+            ))}
+          </ul>
+
+          <Button
+            className="
+              w-full 
+              bg-emerald-500 
+              hover:bg-emerald-700
+              transition-opacity
+              duration-300
+            "
           >
             Consultar
-          </a>
-        </Button>
-      </CardContent>
-    </Card>
+          </Button>
+        </CardContent>
+      </Card>
+    </a>
   );
 }

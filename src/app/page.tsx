@@ -10,6 +10,7 @@ import FAQ from "@/components/ui/sections/FAQ";
 import Footer from "@/components/ui/sections/Footer";
 import { Analytics } from "@vercel/analytics/next";
 import { SpeedInsights } from "@vercel/speed-insights/next";
+import { CursorFollower } from "@/components/ui/sections/CursorFollower";
 
 export default function Page() {
   return (
@@ -19,6 +20,7 @@ export default function Page() {
       <Services />
       <Pricing />
       {/* <Testimonials /> */}
+      <CursorFollower />
       <SpeedInsights />
       <Analytics />
       <FAQ />
