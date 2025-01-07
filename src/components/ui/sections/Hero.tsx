@@ -23,7 +23,7 @@ export default function Hero() {
   }, []);
 
   return (
-    <section className="container mx-auto px-4 py-20 overflow-hidden">
+    <section className="container mx-auto px-4 py-2 overflow-hidden">
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
         {/* Contenido de texto */}
         <div className="space-y-8">

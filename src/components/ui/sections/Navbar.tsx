@@ -3,6 +3,8 @@ import Link from "next/link";
 import { AnimatePresence, motion } from "framer-motion";
 import { IconMenu2, IconX } from "@tabler/icons-react";
 import { handleScroll } from "@/utils/scrollToElement";
+import { AspectRatio } from "../aspect-ratio";
+import SvgKiwi from "@/components/ui/sections/SvgKiwi";
 
 export default function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -15,10 +17,8 @@ export default function Navbar() {
     <nav className="relative container mx-auto px-4 py-6">
       <div className="flex items-center justify-between">
         <div className="flex items-center space-x-12">
-          <Link
-            className="flex items-center space-x-2 text-2xl font-bold"
-            href="#"
-          >
+          <Link className="flex items-center text-2xl font-bold" href="#">
+            {SvgKiwi()}
             <span>Kiwisoft</span>
           </Link>
           <div className="hidden md:flex items-center space-x-8">

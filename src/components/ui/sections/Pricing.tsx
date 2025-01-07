@@ -28,6 +28,7 @@ export default function Pricing() {
             "Desarrollo Web Básico",
             "Soporte 8/5",
             "1 Revisión Mensual",
+            "Hosting no incluido",
           ]}
         />
         <PricingCard
@@ -58,7 +59,6 @@ export default function Pricing() {
 
 function PricingCard({ plan, price, features, popular }: PricingCardProps) {
   return (
-    // Envolvemos toda la tarjeta en un <a> para que sea clickeable.
     <a
       href="mailto:info.kiwisoft@gmail.com?subject=Consulta%20sobre%20KiwiSoft&body=Hola,%20quiero%20más%20información%20sobre%20sus%20servicios."
       className="block group relative"
