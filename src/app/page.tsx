@@ -1,16 +1,16 @@
 "use client";
 
-import Navbar from "@/sections/Navbar";
-import Hero from "@/sections/Hero";
-import Services from "@/sections/Services";
-import Pricing from "@/sections/Pricing";
+import Navbar from "@/components/ui/sections/Navbar";
+import Hero from "@/components/ui/sections/Hero";
+import Services from "@/components/ui/sections/Services";
+import Pricing from "@/components/ui/sections/Pricing";
 // import Testimonials from "@/components/ui/sections/Testimonials";
 
-import FAQ from "@/sections/FAQ";
-import Footer from "@/sections/Footer";
+import FAQ from "@/components/ui/sections/FAQ";
+import Footer from "@/components/ui/sections/Footer";
 import { Analytics } from "@vercel/analytics/next";
 import { SpeedInsights } from "@vercel/speed-insights/next";
-import { CursorFollower } from "@/utils/CursorFollower";
+import { CursorFollower } from "@/components/ui/sections/CursorFollower";
 
 export default function Page() {
   return (
