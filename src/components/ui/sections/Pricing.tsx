@@ -78,7 +78,7 @@ function PricingCard({ plan, price, features, popular }: PricingCardProps) {
         "
       >
         {popular && (
-          <div className="absolute mt-1 left-1/2 -translate-x-1/2 bg-emerald-500 text-white px-4 py-1 rounded-full text-sm z-10">
+          <div className="absolute mt-2 left-1/2 -translate-x-1/2 bg-emerald-500  text-white px-4 py-1 rounded-full text-sm z-10">
             Popular
           </div>
         )}
