@@ -14,27 +14,20 @@ import { SpeedInsights } from "@vercel/speed-insights/next";
 
 export default function Page() {
   return (
-    <>
-      <Head>
-        <link rel="icon" href="/favicon.svg" />
-        <title>Kiwisoft</title>
-      </Head>
+    <div className="min-h-screen bg-[#1C1C1C] text-white font-sans">
+      <Navbar />
 
-      <div className="min-h-screen bg-[#1C1C1C] text-white font-sans">
-        <Navbar />
-
-        <main className="pt-20">
-          <Hero />
-          <Services />
-          <Pricing />
-          {/* <Testimonials /> */}
-          {/* <CursorFollower /> */}
-          <SpeedInsights />
-          <Analytics />
-          <FAQ />
-          <Footer />
-        </main>
-      </div>
-    </>
+      <main className="pt-20">
+        <Hero />
+        <Services />
+        <Pricing />
+        {/* <Testimonials /> */}
+        {/* <CursorFollower /> */}
+        <SpeedInsights />
+        <Analytics />
+        <FAQ />
+        <Footer />
+      </main>
+    </div>
   );
 }

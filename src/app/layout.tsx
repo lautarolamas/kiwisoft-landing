@@ -17,7 +17,7 @@ export const metadata: Metadata = {
   title: "Kiwisoft",
   description: "Soluciones digitales a medida",
   icons: {
-    icon: "/favicon.svg",
+    icon: "../public/favicon.ico",
   },
 };
 
