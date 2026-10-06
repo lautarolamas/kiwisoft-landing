@@ -1,79 +1,145 @@
 "use client";
 
-import { useState, useEffect } from "react";
-import { motion, AnimatePresence } from "framer-motion";
-import { AspectRatio } from "@/components/ui/aspect-ratio";
-import { Player } from "@lottiefiles/react-lottie-player";
+import { useEffect, useState } from "react";
+import { AnimatePresence, motion } from "framer-motion";
+import {
+  IconArrowRight, IconSparkles, IconBrandNextjs, IconBrandReact, IconSeo, IconDeviceMobile,
+} from "@tabler/icons-react";
+import KiwiMascot from "@/components/ui/sections/KiwiMascot";
+import { askKiwi } from "@/components/ui/sections/ChatWidget";
 import { handleScroll } from "@/utils/scrollToElement";
-export default function Hero() {
-  const [currentWord, setCurrentWord] = useState(0);
 
-  const words = [
-    "soluciones digitales",
-    "experiencias únicas",
-    "futuro innovador",
-    "éxito digital",
-  ];
+const WORDS = [
+  "soluciones digitales",
+  "experiencias únicas",
+  "futuro innovador",
+  "éxito digital",
+];
+
+const CHIPS = [
+  { label: "Next.js", Icon: IconBrandNextjs, cls: "left-0 top-[10%]", d: 0 },
+  { label: "React", Icon: IconBrandReact, cls: "right-0 top-[20%]", d: 0.6 },
+  { label: "SEO", Icon: IconSeo, cls: "left-[2%] bottom-[14%]", d: 1.2 },
+  { label: "Responsive", Icon: IconDeviceMobile, cls: "right-[0%] bottom-[8%]", d: 1.8 },
+];
+
+export default function Hero() {
+  const [i, setI] = useState(0);
+  const [bubble, setBubble] = useState(false);
 
   useEffect(() => {
-    const interval = setInterval(() => {
-      setCurrentWord((prev) => (prev + 1) % words.length);
-    }, 3000);
-    return () => clearInterval(interval);
+    const t = setInterval(() => setI((p) => (p + 1) % WORDS.length), 3000);
+    return () => clearInterval(t);
   }, []);
 
   return (
-    <section className="container mx-auto px-4 py-2 overflow-hidden">
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-        {/* Contenido de texto */}
-        <div className="space-y-8">
-          <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold leading-tight sm:mt-4">
+    <section className="relative overflow-hidden">
+      <div className="container mx-auto grid items-center gap-10 px-4 pb-16 pt-28 sm:pt-36 lg:grid-cols-[1.1fr_0.9fr] lg:gap-6 lg:pb-24">
+        <div className="space-y-7 text-center lg:text-left">
+          <motion.div
+            initial={{ opacity: 0, y: 12 }}
+            animate={{ opacity: 1, y: 0 }}
+            className="inline-flex items-center gap-2 rounded-full border border-emerald-500/30 bg-emerald-500/10 px-4 py-1.5 text-sm text-emerald-300"
+          >
+            <IconSparkles size={16} /> Estudio web · Buenos Aires
+          </motion.div>
+
+          <motion.h1
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.08 }}
+            className="text-4xl font-bold leading-[1.08] tracking-tight sm:text-6xl lg:text-7xl"
+          >
             Transformamos ideas en{" "}
-            <AnimatePresence mode="wait">
-              <motion.span
-                key={currentWord}
-                initial={{ y: 20, opacity: 0 }}
-                animate={{ y: 0, opacity: 1 }}
-                exit={{ y: -20, opacity: 0 }}
-                transition={{ duration: 0.5, ease: "easeOut" }}
-                className="inline-block bg-emerald-500/20 text-emerald-400 px-4 py-1 rounded-full"
-              >
-                {words[currentWord]}
-              </motion.span>
-            </AnimatePresence>
-          </h1>
-          <p className="text-gray-400 text-lg max-w-full sm:max-w-lg">
+            <span className="relative inline-block min-h-[1.2em] align-bottom">
+              <AnimatePresence mode="wait">
+                <motion.span
+                  key={i}
+                  initial={{ y: 24, opacity: 0, filter: "blur(6px)" }}
+                  animate={{ y: 0, opacity: 1, filter: "blur(0px)" }}
+                  exit={{ y: -24, opacity: 0, filter: "blur(6px)" }}
+                  transition={{ duration: 0.45, ease: "easeOut" }}
+                  className="inline-block bg-gradient-to-r from-emerald-300 via-emerald-400 to-lime-300 bg-clip-text text-transparent"
+                >
+                  {WORDS[i]}
+                </motion.span>
+              </AnimatePresence>
+            </span>
+          </motion.h1>
+
+          <motion.p
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.16 }}
+            className="mx-auto max-w-xl text-base text-gray-400 sm:text-lg lg:mx-0"
+          >
             En KiwiSoft, nos dedicamos a crear páginas web a medida, landing
             pages, sitios institucionales y diseños OnePage, ideales para
             representar tu marca y destacar en el mundo digital.
-          </p>
-          <a
-            onClick={handleScroll}
-            href="#nuestros-servicios"
-            className="bg-emerald-500 hover:bg-emerald-600 text-white text-lg px-8 py-3 rounded-full inline-block"
+          </motion.p>
+
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.24 }}
+            className="flex flex-col items-center gap-3 sm:flex-row lg:justify-start justify-center"
           >
-            Conoce más
-          </a>
+            <a
+              href="#nuestros-servicios"
+              onClick={handleScroll}
+              className="group inline-flex items-center gap-2 rounded-full bg-emerald-500 px-7 py-3.5 text-base font-medium text-white shadow-lg shadow-emerald-500/25 transition hover:bg-emerald-400"
+            >
+              Conoce más
+              <IconArrowRight size={18} className="transition group-hover:translate-x-1" />
+            </a>
+            <button
+              onClick={() => askKiwi("¿Qué servicios ofrecen?")}
+              className="inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/5 px-7 py-3.5 text-base font-medium text-white backdrop-blur transition hover:bg-white/10"
+            >
+              Preguntale a Kiwi
+            </button>
+          </motion.div>
         </div>
 
-        <div className="relative flex justify-center lg:justify-end">
-          <div
-            className="absolute inset-0 rounded-full blur-3xl"
-            style={{
-              background:
-                "radial-gradient(circle, rgba(16,185,129,0.1) 0%, transparent 80%)",
-            }}
-          />
-          <div className="w-full max-w-xs sm:max-w-md lg:max-w-lg">
-            <AspectRatio>
-              <Player
-                autoplay
-                loop
-                src="/images/Animation.json"
-                style={{ width: "100%", height: "100%" }}
+        {/* Mascota */}
+        <div className="relative mx-auto aspect-square w-full max-w-[22rem] sm:max-w-md">
+          <div className="absolute inset-[8%] rounded-full bg-emerald-500/25 blur-3xl" />
+          <div className="absolute inset-0 grid place-items-center">
+            <div className="relative w-[min(68vw,300px)]">
+              <KiwiMascot
+                size="100%"
+                onPoke={() => {
+                  setBubble(true);
+                  setTimeout(() => setBubble(false), 2200);
+                }}
+                className="drop-shadow-[0_20px_40px_rgba(16,185,129,0.35)]"
               />
-            </AspectRatio>
+              <AnimatePresence>
+                {bubble && (
+                  <motion.div
+                    initial={{ opacity: 0, scale: 0.7, y: 8 }}
+                    animate={{ opacity: 1, scale: 1, y: 0 }}
+                    exit={{ opacity: 0, scale: 0.7 }}
+                    className="absolute -top-4 left-1/2 -translate-x-1/2 whitespace-nowrap rounded-2xl bg-white px-4 py-2 text-sm font-medium text-[#1C1C1C] shadow-xl"
+                  >
+                    ¡Hola! Soy Kiwi 🥝
+                    <span className="absolute -bottom-1.5 left-1/2 h-3 w-3 -translate-x-1/2 rotate-45 bg-white" />
+                  </motion.div>
+                )}
+              </AnimatePresence>
+            </div>
           </div>
+          {CHIPS.map((c) => (
+            <motion.span
+              key={c.label}
+              animate={{ y: [0, -10, 0] }}
+              transition={{ duration: 4, repeat: Infinity, delay: c.d, ease: "easeInOut" }}
+              className={`absolute ${c.cls} flex items-center gap-2 rounded-2xl border border-white/10 bg-[#1C1C1C]/70 px-3 py-2 text-xs text-gray-200 shadow-xl shadow-black/30 backdrop-blur sm:text-sm`}
+            >
+              <c.Icon size={18} className="text-emerald-400" />
+              {c.label}
+            </motion.span>
+          ))}
         </div>
       </div>
     </section>

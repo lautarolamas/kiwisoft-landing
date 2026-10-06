@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import localFont from "next/font/local";
 import "./globals.css";
 
@@ -17,8 +17,13 @@ export const metadata: Metadata = {
   title: "Kiwisoft",
   description: "Soluciones digitales a medida",
   icons: {
-    icon: "../public/favicon.ico",
+    icon: "/images/icon.png",
   },
+};
+
+export const viewport: Viewport = {
+  themeColor: "#1C1C1C",
+  viewportFit: "cover",
 };
 
 export default function RootLayout({
