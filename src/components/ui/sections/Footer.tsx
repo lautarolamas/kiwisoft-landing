@@ -1,51 +1,27 @@
 "use client";
 
-interface FooterSectionProps {
-  title: string;
-  content?: string;
-  links?: string[];
-}
+import KiwiMascot from "@/components/ui/sections/KiwiMascot";
+import { CONTACT_EMAIL } from "@/lib/knowledge";
 
 export default function Footer() {
   return (
-    <footer id="contactos" className="border-t border-gray-500">
-      <div className="container mx-auto px-4 py-4">
-        <div className="grid md:grid-cols-1 gap-10">
-          {/* <FooterSection
-            title="KiwiSoft"
-            content="Transformando el futuro digital con soluciones tecnológicas innovadoras."
-          /> */}
-          {/* <FooterSection
-            title="Servicios"
-            links={["Desarrollo Web", "Aplicaciones Móviles", "UI/UX Design"]}
-          /> */}
-          {/* <FooterSection
-            title="Empresa"
-            links={["Sobre Nosotros", "Proyectos", "Testimonios", "Contacto"]}
-          /> */}
-          <FooterSection
-            title="Contacto"
-            links={["info.kiwisoft@gmail.com", "Buenos Aires, AR"]}
-          />
+    <footer id="contactos" className="border-t border-white/10">
+      <div className="container mx-auto flex flex-col items-center justify-between gap-6 px-4 py-10 pb-28 text-center sm:flex-row sm:text-left">
+        <div className="flex items-center gap-2">
+          <KiwiMascot size={48} alive={false} />
+          <div>
+            <p className="text-lg font-bold">Kiwisoft</p>
+            <p className="text-sm text-gray-400">Soluciones digitales a medida</p>
+          </div>
         </div>
-        <p className="mt-10">©2025 KiwiSoft</p>
+        <div className="space-y-1 text-sm text-gray-400">
+          <a href={`mailto:${CONTACT_EMAIL}`} className="block transition hover:text-emerald-400">
+            {CONTACT_EMAIL}
+          </a>
+          <p>Buenos Aires, AR</p>
+          <p>©{new Date().getFullYear()} KiwiSoft</p>
+        </div>
       </div>
     </footer>
-  );
-}
-
-function FooterSection({ title, content, links }: FooterSectionProps) {
-  return (
-    <div className="space-y-4">
-      <h3 className="text-lg font-bold">{title}</h3>
-      {content && <p className="text-gray-400">{content}</p>}
-      {links && (
-        <ul className="space-y-2 text-gray-400">
-          {links.map((link, index) => (
-            <li key={index}>{link}</li>
-          ))}
-        </ul>
-      )}
-    </div>
   );
 }
