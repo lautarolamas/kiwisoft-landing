@@ -2,7 +2,9 @@
 
 import { useEffect, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
-import { IconArrowRight, IconSparkles } from "@tabler/icons-react";
+import {
+  IconArrowRight, IconSparkles, IconBrandNextjs, IconBrandReact, IconSeo, IconDeviceMobile,
+} from "@tabler/icons-react";
 import KiwiMascot from "@/components/ui/sections/KiwiMascot";
 import { askKiwi } from "@/components/ui/sections/ChatWidget";
 import { handleScroll } from "@/utils/scrollToElement";
@@ -15,10 +17,10 @@ const WORDS = [
 ];
 
 const CHIPS = [
-  { label: "Next.js", cls: "left-0 top-[12%]", d: 0 },
-  { label: "React", cls: "right-0 top-[22%]", d: 0.6 },
-  { label: "SEO", cls: "left-[4%] bottom-[16%]", d: 1.2 },
-  { label: "Responsive", cls: "right-[2%] bottom-[8%]", d: 1.8 },
+  { label: "Next.js", Icon: IconBrandNextjs, cls: "left-0 top-[10%]", d: 0 },
+  { label: "React", Icon: IconBrandReact, cls: "right-0 top-[20%]", d: 0.6 },
+  { label: "SEO", Icon: IconSeo, cls: "left-[2%] bottom-[14%]", d: 1.2 },
+  { label: "Responsive", Icon: IconDeviceMobile, cls: "right-[0%] bottom-[8%]", d: 1.8 },
 ];
 
 export default function Hero() {
@@ -132,8 +134,9 @@ export default function Hero() {
               key={c.label}
               animate={{ y: [0, -10, 0] }}
               transition={{ duration: 4, repeat: Infinity, delay: c.d, ease: "easeInOut" }}
-              className={`absolute ${c.cls} rounded-full border border-white/10 bg-[#1C1C1C]/70 px-3 py-1.5 text-xs text-gray-200 backdrop-blur sm:text-sm`}
+              className={`absolute ${c.cls} flex items-center gap-2 rounded-2xl border border-white/10 bg-[#1C1C1C]/70 px-3 py-2 text-xs text-gray-200 shadow-xl shadow-black/30 backdrop-blur sm:text-sm`}
             >
+              <c.Icon size={18} className="text-emerald-400" />
               {c.label}
             </motion.span>
           ))}

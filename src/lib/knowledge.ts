@@ -22,6 +22,12 @@ PREGUNTAS FRECUENTES
 - ¿Ofrecen mantenimiento post-desarrollo? Sí, hay planes de mantenimiento y soporte continuo para que tu sitio funcione bien y se mantenga actualizado.
 - ¿Qué tecnologías utilizan? Las últimas tecnologías como React, Next.js, Node.js y más, eligiendo el stack adecuado para cada proyecto.
 
+MÉTODO DE TRABAJO (4 pasos)
+1. Conversamos: entendemos el negocio, el público y el objetivo. 2. Diseñamos: estructura, estilo y contenido respetando la marca. 3. Desarrollamos: sitio a medida, rápido, responsive y listo para buscadores. 4. Lanzamos y acompañamos: publicamos y damos soporte y mantenimiento.
+
+FORMATOS DE SITIO: landing page (una página con un objetivo), sitio institucional (varias secciones sobre la empresa) y OnePage (todo en un solo scroll).
+También se puede pedir contacto desde el formulario de la web.
+
 CONTACTO
 - Email: ${CONTACT_EMAIL}
 - Ubicación: Buenos Aires, AR

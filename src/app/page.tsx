@@ -4,6 +4,13 @@ import Services from "@/components/ui/sections/Services";
 import Pricing from "@/components/ui/sections/Pricing";
 import AskKiwi from "@/components/ui/sections/AskKiwi";
 import FAQ from "@/components/ui/sections/FAQ";
+import Marquee from "@/components/ui/sections/Marquee";
+import Pillars from "@/components/ui/sections/Pillars";
+import SiteTypes from "@/components/ui/sections/SiteTypes";
+import Trends from "@/components/ui/sections/Trends";
+import Process from "@/components/ui/sections/Process";
+import Contact from "@/components/ui/sections/Contact";
+import ScrollProgress from "@/components/ui/sections/ScrollProgress";
 import Footer from "@/components/ui/sections/Footer";
 import ChatWidget from "@/components/ui/sections/ChatWidget";
 import { Analytics } from "@vercel/analytics/next";
@@ -22,13 +29,20 @@ export default function Page() {
           backgroundSize: "56px 56px",
         }}
       />
+      <ScrollProgress />
       <Navbar />
       <main className="relative">
         <Hero />
+        <Marquee />
+        <Pillars />
         <Services />
+        <SiteTypes />
+        <Trends />
+        <Process />
         <Pricing />
         <AskKiwi />
         <FAQ />
+        <Contact />
         <Footer />
       </main>
       <ChatWidget />

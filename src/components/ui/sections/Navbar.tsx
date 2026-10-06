@@ -9,6 +9,7 @@ import { CONTACT_EMAIL } from "@/lib/knowledge";
 
 const LINKS = [
   { href: "#nuestros-servicios", label: "Servicios" },
+  { href: "#metodo", label: "Método" },
   { href: "#planes", label: "Planes" },
   { href: "#preguntale-a-kiwi", label: "Kiwi IA" },
   { href: "#faq", label: "Preguntas" },
@@ -62,7 +63,8 @@ export default function Navbar() {
         </div>
 
         <a
-          href={MAIL}
+          href="#contacto"
+          onClick={handleScroll}
           className="hidden md:inline-flex rounded-full bg-emerald-500 px-5 py-2 text-sm font-medium text-white transition hover:bg-emerald-400 hover:shadow-lg hover:shadow-emerald-500/30"
         >
           Contáctanos
