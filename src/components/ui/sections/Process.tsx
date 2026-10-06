@@ -44,8 +44,8 @@ export default function Process() {
               }`}
             >
               <span
-                className={`absolute left-0 top-0 grid h-10 w-10 place-items-center rounded-full border border-emerald-500/50 bg-[#1C1C1C] text-sm font-bold text-emerald-300 sm:left-auto ${
-                  i % 2 === 0 ? "sm:-right-5" : "sm:-left-5"
+                className={`absolute left-0 top-0 grid h-10 w-10 place-items-center rounded-full border border-emerald-500/50 bg-[#1C1C1C] text-sm font-bold text-emerald-300 ${
+                  i % 2 === 0 ? "sm:left-auto sm:-right-5" : "sm:-left-5"
                 }`}
               >
                 {s.n}
