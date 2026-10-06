@@ -51,7 +51,7 @@ export default function Hero() {
             className="text-4xl font-bold leading-[1.08] tracking-tight sm:text-6xl lg:text-7xl"
           >
             Transformamos ideas en{" "}
-            <span className="relative inline-block min-h-[1.2em] align-bottom">
+            <span className="relative inline-block">
               <AnimatePresence mode="wait">
                 <motion.span
                   key={i}
@@ -59,7 +59,7 @@ export default function Hero() {
                   animate={{ y: 0, opacity: 1, filter: "blur(0px)" }}
                   exit={{ y: -24, opacity: 0, filter: "blur(6px)" }}
                   transition={{ duration: 0.45, ease: "easeOut" }}
-                  className="inline-block bg-gradient-to-r from-emerald-300 via-emerald-400 to-lime-300 bg-clip-text text-transparent"
+                  className="inline-block bg-gradient-to-r from-emerald-300 via-emerald-400 to-lime-300 bg-clip-text pb-[0.1em] -mb-[0.1em] text-transparent"
                 >
                   {WORDS[i]}
                 </motion.span>
