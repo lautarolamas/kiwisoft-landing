@@ -122,7 +122,8 @@ export default function Hero() {
                     exit={{ opacity: 0, scale: 0.7 }}
                     className="absolute -top-4 left-1/2 -translate-x-1/2 whitespace-nowrap rounded-2xl bg-white px-4 py-2 text-sm font-medium text-[#1C1C1C] shadow-xl"
                   >
-                    ¡Hola! Soy Kiwi 🥝
+                    ¡Hola! Soy Kiwi{" "}
+                    <KiwiMascot size="1.25em" alive={false} className="-mt-1 align-middle" />
                     <span className="absolute -bottom-1.5 left-1/2 h-3 w-3 -translate-x-1/2 rotate-45 bg-white" />
                   </motion.div>
                 )}
