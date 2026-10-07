@@ -17,7 +17,11 @@ export const metadata: Metadata = {
   title: "Kiwisoft",
   description: "Soluciones digitales a medida",
   icons: {
-    icon: "/images/icon.png",
+    icon: [
+      { url: "/images/kiwi-mascot.svg", type: "image/svg+xml" },
+      { url: "/images/kiwi-mascot.png", type: "image/png", sizes: "512x512" },
+    ],
+    apple: { url: "/images/kiwi-mascot-apple.png", sizes: "180x180" },
   },
 };
 
