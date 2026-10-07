@@ -22,12 +22,6 @@ export default function Footer() {
           <p>©{new Date().getFullYear()} KiwiSoft</p>
         </div>
       </div>
-      <p
-        aria-hidden
-        className="select-none overflow-hidden whitespace-nowrap text-center text-[22vw] font-black leading-[0.8] tracking-tighter text-white/[0.04] sm:text-[16vw]"
-      >
-        kiwisoft
-      </p>
     </footer>
   );
 }
