@@ -7,6 +7,7 @@ import FAQ from "@/components/ui/sections/FAQ";
 import Marquee from "@/components/ui/sections/Marquee";
 import Pillars from "@/components/ui/sections/Pillars";
 import SiteTypes from "@/components/ui/sections/SiteTypes";
+import Projects from "@/components/ui/sections/Projects";
 import Trends from "@/components/ui/sections/Trends";
 import Process from "@/components/ui/sections/Process";
 import Contact from "@/components/ui/sections/Contact";
@@ -37,6 +38,7 @@ export default function Page() {
         <Pillars />
         <Services />
         <SiteTypes />
+        <Projects />
         <Trends />
         <Process />
         <Pricing />
