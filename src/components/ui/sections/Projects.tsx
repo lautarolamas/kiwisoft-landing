@@ -1,9 +1,12 @@
 "use client";
 
+import { useEffect, useRef, useState } from "react";
 import { motion } from "framer-motion";
 import { IconArrowUpRight, IconStarFilled } from "@tabler/icons-react";
 
-// TODO: reemplazar nombre/rubro/url de las landings 2-5 por los reales.
+const BASE = "https://landings-jade.vercel.app";
+
+// TODO: sumar las landings que falten (cada una con su ruta real).
 const PROJECTS = [
   {
     name: "Frutilla",
@@ -13,34 +16,70 @@ const PROJECTS = [
     accent: "#f43f5e",
   },
   {
-    name: "Landing Gastronomía",
-    tag: "Restaurante",
-    text: "Menú, reservas y ubicación en una sola página, rápida y cómoda desde el celular.",
-    url: "https://landings-jade.vercel.app/",
+    name: "Café",
+    tag: "Gastronomía",
+    text: "Carta, ambiente y ubicación en una sola página, rápida y cómoda desde el celular.",
+    url: `${BASE}/cafe`,
     accent: "#f59e0b",
   },
   {
-    name: "Landing Servicios",
-    tag: "Profesionales",
-    text: "Presentación clara de servicios, prueba social y contacto directo por WhatsApp.",
-    url: "https://landings-jade.vercel.app/",
+    name: "Gimnasio",
+    tag: "Fitness",
+    text: "Planes, horarios y contacto directo para sumar nuevos socios.",
+    url: `${BASE}/gimnasio`,
     accent: "#38bdf8",
   },
-  {
-    name: "Landing Salud y Bienestar",
-    tag: "Turnos online",
-    text: "Diseño cálido y confiable con llamado a la acción para reservar turnos.",
-    url: "https://landings-jade.vercel.app/",
-    accent: "#a78bfa",
-  },
-  {
-    name: "Landing Emprendimiento",
-    tag: "OnePage",
-    text: "Todo el recorrido de un emprendimiento en un scroll fluido: propuesta, galería y contacto.",
-    url: "https://landings-jade.vercel.app/",
-    accent: "#34d399",
-  },
 ];
+
+const PREVIEW_W = 1280;
+const PREVIEW_H = 800;
+
+// Vista previa real del sitio: iframe escalado al ancho de la tarjeta.
+function Preview({ url, accent }: { url: string; accent: string }) {
+  const box = useRef<HTMLDivElement>(null);
+  const [scale, setScale] = useState(0.3);
+  const [loaded, setLoaded] = useState(false);
+
+  useEffect(() => {
+    const el = box.current;
+    if (!el) return;
+    const update = () => setScale(el.clientWidth / PREVIEW_W);
+    update();
+    const ro = new ResizeObserver(update);
+    ro.observe(el);
+    return () => ro.disconnect();
+  }, []);
+
+  return (
+    <div
+      ref={box}
+      className="relative overflow-hidden bg-[#161616]"
+      style={{ aspectRatio: `${PREVIEW_W} / ${PREVIEW_H}` }}
+    >
+      <div
+        aria-hidden
+        className="absolute inset-0 animate-pulse"
+        style={{ background: `linear-gradient(135deg, ${accent}33, transparent)` }}
+      />
+      <div
+        className={`absolute left-0 top-0 origin-top-left transition-all duration-700 ease-out group-hover:brightness-110 ${
+          loaded ? "opacity-100" : "opacity-0"
+        }`}
+        style={{ width: PREVIEW_W, height: PREVIEW_H, transform: `scale(${scale})` }}
+      >
+        <iframe
+          src={url}
+          title={`Vista previa de ${url}`}
+          loading="lazy"
+          tabIndex={-1}
+          onLoad={() => setLoaded(true)}
+          className="pointer-events-none h-full w-full border-0"
+        />
+      </div>
+      <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/30 to-transparent opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
+    </div>
+  );
+}
 
 // Reseñas ficticias de ejemplo.
 const REVIEWS = [
@@ -83,27 +122,7 @@ export default function Projects() {
             transition={{ duration: 0.4, delay: i * 0.06 }}
             className="group overflow-hidden rounded-2xl border border-white/10 bg-white/[0.03] transition hover:-translate-y-1 hover:border-emerald-400/40"
           >
-            <div className="relative h-44 overflow-hidden border-b border-white/10 bg-[#161616]">
-              <div className="flex items-center gap-1.5 border-b border-white/10 px-3 py-2">
-                <span className="h-2 w-2 rounded-full bg-red-400/70" />
-                <span className="h-2 w-2 rounded-full bg-yellow-400/70" />
-                <span className="h-2 w-2 rounded-full bg-emerald-400/80" />
-                <span className="ml-2 flex-1 truncate rounded bg-white/5 px-2 py-0.5 text-[11px] text-gray-500">
-                  {p.url.replace(/^https?:\/\//, "").replace(/\/$/, "")}
-                </span>
-              </div>
-              <div className="space-y-2 p-4">
-                <div className="h-2 w-1/4 rounded" style={{ background: p.accent }} />
-                <div className="h-4 w-4/5 rounded bg-white/20" />
-                <div className="h-4 w-3/5 rounded bg-white/10" />
-                <div className="mt-3 h-5 w-20 rounded-full" style={{ background: p.accent }} />
-              </div>
-              <div
-                aria-hidden
-                className="absolute -bottom-10 -right-10 h-32 w-32 rounded-full opacity-30 blur-2xl"
-                style={{ background: p.accent }}
-              />
-            </div>
+            <Preview url={p.url} accent={p.accent} />
             <div className="p-5">
               <div className="flex items-center justify-between gap-2">
                 <h3 className="text-lg font-bold">{p.name}</h3>
